@@ -41,7 +41,7 @@ while True:
 				print(str(table[0]) + " " , end = "")
 			print("\t")
 		else:
-			print("Query not handled.")
+			print("Query not handled or invalid syntax.")
 			continue
 	else:
 		try:
