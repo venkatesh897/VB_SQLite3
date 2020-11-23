@@ -7,6 +7,11 @@ from printy import printy
 print("SQLite version 3.33.0 2020-08-14 13:23:32")
 print("Enter \".help\" for usage hints.")
 
+def get_connection(data_base):
+	connection = sqlite3.connect(data_base)
+	return connection
+
+
 if len(sys.argv) == 2:
 	data_base_name = sys.argv[1]
 else:
@@ -16,7 +21,7 @@ else:
 	print("Use \".open FILENAME\" to reopen on a persistent database.")
 	data_base_name = 'temporary.db'
 
-connection = sqlite3.connect(data_base_name)
+connection = get_connection(data_base_name)
 
 while True:
 
@@ -29,7 +34,7 @@ while True:
 		elif query[:5] == '.open':
 			connection.close()
 			data_base_name = query[6:]
-			connection = sqlite3.connect(data_base_name)
+			connection = get_connection(data_base_name)
 
 		elif query == '.table':
 
@@ -38,7 +43,7 @@ while True:
 			tables = cursor.fetchall()
 
 			for table in tables:
-				print(str(table[0]) + " " , end = "")
+				print(str(table[0]) + "    " , end = "")
 			print("\t")
 		else:
 			print("Query not handled or invalid syntax.")
