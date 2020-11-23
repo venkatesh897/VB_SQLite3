@@ -1,4 +1,4 @@
-#Program to illustrate SQLite3 library
+#Program which behaves as sqlite3.exe file.
 
 import sqlite3
 import sys
@@ -59,4 +59,3 @@ while True:
 					if index != length_of_record - 1:
 						print("|", end = "")
 				print("\t")
-			
