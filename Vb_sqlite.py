@@ -15,13 +15,11 @@ else:
 	print(".")
 	print("Use \".open FILENAME\" to reopen on a persistent database.")
 	data_base_name = 'temporary.db'
-
+	
 connection = sqlite3.connect(data_base_name)
 
 while True:
-
 	query = input("sqlite3> ")
-
 	if query[0] != '.':
 		try:
 			cursor = connection.execute(query.replace(";", ""))
@@ -38,7 +36,6 @@ while True:
 					if index != length_of_record - 1:
 						print("|", end = "")
 				print("\t")
-
 	else:
 		if query == '.quit':
 			connection.close()
