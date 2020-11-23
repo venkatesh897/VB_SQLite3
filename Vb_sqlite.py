@@ -1,5 +1,4 @@
 #Program to illustrate SQLite3 library
-
 import sqlite3
 import sys
 from printy import printy
@@ -48,7 +47,6 @@ while True:
 			connection.close()
 			data_base_name = query[6:]
 			connection = sqlite3.connect(data_base_name)
-
 		elif query == '.table':
 
 			cursor = connection.execute("SELECT name FROM sqlite_master WHERE type='table';")
